@@ -4,16 +4,16 @@
  * and open the template in the editor.
  */
 package driver;
+import java.util.*;
+import java.util.ArrayList;
+import javax.swing.JOptionPane;
 
-/**
- *
- * @author Hafsa Rashid
- */
 public class Manager extends javax.swing.JFrame {
 
     /**
      * Creates new form Manager
      */
+    AccManager manager = new AccManager();
     public Manager() {
         initComponents();
     }
@@ -28,50 +28,60 @@ public class Manager extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
-        jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
-        jButton6 = new javax.swing.JButton();
+        Add = new javax.swing.JButton();
+        Update = new javax.swing.JButton();
+        Request = new javax.swing.JButton();
+        Employees = new javax.swing.JButton();
+        View = new javax.swing.JButton();
+        Back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Manager");
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
 
-        jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jButton1.setText("Add an item in stock");
-
-        jButton2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jButton2.setText("Update stock");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        Add.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        Add.setText("Add an item in stock");
+        Add.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                AddActionPerformed(evt);
             }
         });
 
-        jButton3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jButton3.setText("Required accessories");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        Update.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        Update.setText("Update stock");
+        Update.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                UpdateActionPerformed(evt);
             }
         });
 
-        jButton4.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jButton4.setText("Manage employees");
-
-        jButton5.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jButton5.setText("View stock");
-        jButton5.addActionListener(new java.awt.event.ActionListener() {
+        Request.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        Request.setText("Required accessories");
+        Request.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                RequestActionPerformed(evt);
             }
         });
 
-        jButton6.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jButton6.setText("Back");
+        Employees.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        Employees.setText("Manage employees");
+
+        View.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        View.setText("View stock");
+        View.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ViewActionPerformed(evt);
+            }
+        });
+
+        Back.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        Back.setText("Back");
+        Back.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BackActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -82,19 +92,19 @@ public class Manager extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(33, 33, 33)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addComponent(Request, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(Add, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 94, Short.MAX_VALUE)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
-                            .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(Update, javax.swing.GroupLayout.DEFAULT_SIZE, 155, Short.MAX_VALUE)
+                            .addComponent(View, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jButton6)))
+                        .addComponent(Back)))
                 .addGap(48, 48, 48))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(Employees)
                 .addGap(168, 168, 168))
         );
         jPanel1Layout.setVerticalGroup(
@@ -102,16 +112,16 @@ public class Manager extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(87, 87, 87)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(Add)
+                    .addComponent(Update))
                 .addGap(40, 40, 40)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton3)
-                    .addComponent(jButton5))
+                    .addComponent(Request)
+                    .addComponent(View))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 44, Short.MAX_VALUE)
-                .addComponent(jButton4)
+                .addComponent(Employees)
                 .addGap(20, 20, 20)
-                .addComponent(jButton6)
+                .addComponent(Back)
                 .addGap(22, 22, 22))
         );
 
@@ -129,17 +139,34 @@ public class Manager extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void RequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_RequestActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton2ActionPerformed
+        UpdateStock update = new UpdateStock();
+        update.setVisible(true);
+    }//GEN-LAST:event_UpdateActionPerformed
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+    private void ViewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ViewActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton5ActionPerformed
+        ViewStock view = new ViewStock();
+        view.setVisible(true);
+        this.setVisible(false);
+    }//GEN-LAST:event_ViewActionPerformed
+
+    private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
+        // TODO add your handling code here:
+        LoginMenu login = new LoginMenu();
+        login.setVisible(true);
+    }//GEN-LAST:event_BackActionPerformed
+
+    private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
+        // TODO add your handling code here:
+        AddItem add = new AddItem();
+        add.setVisible(true);
+    }//GEN-LAST:event_AddActionPerformed
 
     /**
      * @param args the command line arguments
@@ -177,12 +204,12 @@ public class Manager extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
+    private javax.swing.JButton Add;
+    private javax.swing.JButton Back;
+    private javax.swing.JButton Employees;
+    private javax.swing.JButton Request;
+    private javax.swing.JButton Update;
+    private javax.swing.JButton View;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
