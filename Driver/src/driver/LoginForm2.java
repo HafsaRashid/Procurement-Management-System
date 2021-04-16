@@ -7,15 +7,8 @@ package driver;
 
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Hafsa Rashid
- */
 public class LoginForm2 extends javax.swing.JFrame {
-
-    /**
-     * Creates new form LoginForm2
-     */
+    Employee emp = new Employee();
     public LoginForm2() {
         initComponents();
     }
@@ -97,7 +90,7 @@ public class LoginForm2 extends javax.swing.JFrame {
         jTextField7.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
         jLabel10.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jLabel10.setText("Item Code");
+        jLabel10.setText("Rank");
 
         jTextField5.setFont(new java.awt.Font("SansSerif", 0, 12)); // NOI18N
 
@@ -215,7 +208,7 @@ public class LoginForm2 extends javax.swing.JFrame {
         String loginID = jTextField1.getText();
         String contactNo = jTextField2.getText();
         String department = jTextField3.getText();
-        //String ItemCode = jTextField4.getText();
+        String rank = jTextField4.getText();
         String itemName = jTextField5.getText();
         String quantity = jTextField6.getText();
         String company = jTextField7.getText();
@@ -223,21 +216,26 @@ public class LoginForm2 extends javax.swing.JFrame {
         boolean chkID = Validation.EloginID(loginID);
         boolean chkNo = Validation.contactNo(contactNo);
         boolean chkDep = Validation.department(department);
+        boolean chkrank = Validation.rank(rank);
         boolean chkItem = Validation.itemName(itemName);
         boolean chkQt = Validation.quantity(quantity);
         boolean chkCom = Validation.company(company);
 
-        if (chkID == true && chkNo == true && chkDep == true && chkItem == true && chkQt == true && chkCom == true) { 
+        if (chkID == true && chkNo == true && chkDep == true && chkrank == true && chkItem == true && chkQt == true && chkCom == true) { 
             int input = JOptionPane.showConfirmDialog(null, "Are you sure to send a request?");
             if (input == 0) {
-                Employee emp = new Employee();
-                Items item = new Items();
+
+                //emp.item = new Items();
                 emp.setLoginID(loginID);
                 emp.setContactNo(contactNo);
                 emp.setDepartment(department);
-                item.setItemName(itemName);
-                item.setQuantity(quantity);
-                item.setCompany(company);
+                emp.setRank(rank);
+                emp.setItemName(itemName);
+                emp.setQuantity(quantity);
+                emp.setCompany(company);
+                
+                Employee.request.add(emp);
+                
                 JOptionPane.showMessageDialog(null, "Request has been sent.");
             } else if (input == 1) {
                 LoginMenu login = new LoginMenu();

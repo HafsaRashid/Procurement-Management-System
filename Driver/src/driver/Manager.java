@@ -66,6 +66,11 @@ public class Manager extends javax.swing.JFrame {
 
         Employees.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         Employees.setText("Manage employees");
+        Employees.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                EmployeesActionPerformed(evt);
+            }
+        });
 
         View.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
         View.setText("View stock");
@@ -141,6 +146,7 @@ public class Manager extends javax.swing.JFrame {
 
     private void RequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestActionPerformed
         // TODO add your handling code here:
+       
     }//GEN-LAST:event_RequestActionPerformed
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
@@ -167,6 +173,12 @@ public class Manager extends javax.swing.JFrame {
         AddItem add = new AddItem();
         add.setVisible(true);
     }//GEN-LAST:event_AddActionPerformed
+
+    private void EmployeesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmployeesActionPerformed
+        // TODO add your handling code here:
+         ManageEmployees mngEmp = new ManageEmployees();
+        mngEmp.setVisible(true);
+    }//GEN-LAST:event_EmployeesActionPerformed
 
     /**
      * @param args the command line arguments

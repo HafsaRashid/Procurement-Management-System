@@ -135,6 +135,9 @@
             </Property>
             <Property name="text" type="java.lang.String" value="Manage employees"/>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="EmployeesActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="View">
           <Properties>

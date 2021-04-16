@@ -1,11 +1,17 @@
 package driver;
 
-public class Employee {
+import java.util.ArrayList;
+
+public class Employee extends Items{
 
     private String LoginID;
     private String ContactNo;
     private String Department;
-    //String ItemCode;
+    private String Rank;
+    //public Items item;
+    public Employee employee;
+    public static ArrayList <Employee> request = new ArrayList<Employee>();
+
     
 
     /**
@@ -58,4 +64,11 @@ public class Employee {
         return this.Department;
     }
 
+    public void setRank(String rank) {
+        this.Rank = rank;
+    }
+    
+    public String getRank() {
+        return this.Rank;
+    }
 }

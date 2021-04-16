@@ -119,6 +119,19 @@ public class Validation {
         }
         return flag;
     }
+    
+    static boolean rank(String rank) {
+        boolean flag = true;
+        for (int i = 0; i < rank.length(); i++) {
+            if (!(rank.charAt(i) >= 'A' && rank.charAt(i) <= 'Z' || rank.charAt(i) >= 'a' && rank.charAt(i) <= 'z')) {
+                flag = false;
+                break;
+            } else {
+                flag = true;
+            }
+        }
+        return flag;
+    }
 
     /**
      * Validation for Item Name Item name should consist of only alphabets.
