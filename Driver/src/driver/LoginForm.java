@@ -159,6 +159,7 @@ public class LoginForm extends javax.swing.JFrame {
             manager.setPassword(Password);
             Manager m = new Manager();
             m.setVisible(true);
+
         }
         else
         {

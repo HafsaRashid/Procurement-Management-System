@@ -4,14 +4,13 @@
  * and open the template in the editor.
  */
 package driver;
-
-import java.util.ArrayList;
-
-public class Items {
+import java.util.*;
+public class IssuedAcc {
     private String ItemName;
     private String Quantity;
     private String Company;
-    /**
+    public static ArrayList <IssuedAcc> issueAcc = new ArrayList<IssuedAcc>();
+       /**
      * Setter for Item Name. This sets ItemName.
      * @param itemName
      */
@@ -61,46 +60,5 @@ public class Items {
 
     public String getCompany() {
         return this.Company;
-    }
-    
-    public int searchitem(String itemName)
-    {
-        int index = -1;
-        for(int i = 0; i < AccManager.itemList.size(); i++)
-        {
-            if(AccManager.itemList.get(i).getItemName().equals(itemName))
-            {
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
-    
-    public int searchQuantity(String quantity)
-        {
-            int index = -1;
-            for(int i = 0; i < Employee.request.size(); i ++)
-            {
-                if(AccManager.itemList.get(i).getQuantity().equals(quantity))
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
-    public int searchCompany(String company)
-    {
-        int index = -1;
-        for(int i = 0; i < AccManager.itemList.size(); i++)
-        {
-            if(AccManager.itemList.get(i).getCompany().equals(company))
-            {
-                index = i;
-                break;
-            }
-        }
-        return index;
     }
 }

@@ -4,8 +4,8 @@ public class Validation {
 
     // Validation Methods
     /**
-     * Validation for Manager's loginID Format of manager's loginID is
-     * Manager-XX, where X = 0 to 9
+     * Validation for Manager's loginID.
+     * Format of manager's loginID is Manager-XX, where X = 0 to 9
      * @param ID
      * @return flag
      */
@@ -33,8 +33,8 @@ public class Validation {
     }
 
     /**
-     * Validation for Manager's password Manager's password must consist on 8
-     * digits. It can be alphabets, numeric digits or alphanumeric characters.
+     * Validation for Manager's password.
+     * Manager's password must consist on 8 digits. It can be alphabets, numeric digits or alphanumeric characters.
      * @param password
      * @return flag
      */
@@ -55,8 +55,8 @@ public class Validation {
     }
 
     /**
-     * Validation for Employee's loginID Format of employee's loginID is EMP-X,
-     * where X = 0 to 9
+     * Validation for Employee's loginID.
+     * Format of employee's loginID is EMP-X where X = 0 to 9
      * @param ID
      * @return flag
      */
@@ -80,8 +80,8 @@ public class Validation {
     }
 
     /**
-     * Validation for employee's Contact number. Length of contact number must
-     * be 11. Contact Number must be in integers.
+     * Validation for employee's Contact number.
+     * Length of contact number must be 11. Contact Number must be in integers.
      * @param contactNo
      * @return flag
      */
@@ -102,8 +102,8 @@ public class Validation {
     }
 
     /**
-     * Validation for Employee's department Department name should consist of
-     * only alphabets.
+     * Validation for Employee's department.
+     * Department name should consist of only alphabets.
      * @param department
      * @return flag
      */
@@ -120,6 +120,12 @@ public class Validation {
         return flag;
     }
     
+    /**
+     * Validation for Employee's rank.
+     * Item name should consist of only alphabets.
+     * @param ItemName
+     * @return flag
+     */
     static boolean rank(String rank) {
         boolean flag = true;
         for (int i = 0; i < rank.length(); i++) {
@@ -134,7 +140,8 @@ public class Validation {
     }
 
     /**
-     * Validation for Item Name Item name should consist of only alphabets.
+     * Validation for Item Name. 
+     * Item name should consist of only alphabets.
      * @param ItemName
      * @return flag
      */
@@ -152,8 +159,8 @@ public class Validation {
     }
 
     /**
-     * Validation for Item's quantity Quantity should consist of only numeric
-     * digits.
+     * Validation for Item's quantity. 
+     * Quantity should consist of only numeric digits.
      * @param Quantity
      * @return flag
      */
@@ -174,8 +181,8 @@ public class Validation {
     }
 
     /**
-     * Validation for Item's company Company should consist of only alphabets.
-     *
+     * Validation for Item's company.
+     * Company should consist of only alphabets. 
      * @param Company
      * @return flag
      */

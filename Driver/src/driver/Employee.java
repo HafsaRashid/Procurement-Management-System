@@ -2,20 +2,18 @@ package driver;
 
 import java.util.ArrayList;
 
-public class Employee extends Items{
+public class Employee extends Items {
 
     private String LoginID;
     private String ContactNo;
     private String Department;
     private String Rank;
-    //public Items item;
     public Employee employee;
-    public static ArrayList <Employee> request = new ArrayList<Employee>();
-
-    
+    public static ArrayList<Employee> request = new ArrayList<Employee>();
 
     /**
      * Setter for loginID. This sets employee loginID.
+     *
      * @param loginID
      */
     public void setLoginID(String loginID) {
@@ -24,6 +22,7 @@ public class Employee extends Items{
 
     /**
      * Getter for loginID. It is used to return employee's loginID.
+     *
      * @return loginID
      */
     public String getLoginID() {
@@ -33,6 +32,7 @@ public class Employee extends Items{
     /**
      * Setter for employee's contact number. This sets employee's contact
      * number.
+     *
      * @param contactNo
      */
     public void setContactNo(String contactNo) {
@@ -42,6 +42,7 @@ public class Employee extends Items{
     /**
      * Getter for contact number. It is used to return employee's contact
      * number.
+     *
      * @return ContactNo
      */
     public String getContactNo() {
@@ -50,6 +51,7 @@ public class Employee extends Items{
 
     /**
      * Setter for department. This sets employee's department.
+     *
      * @param department
      */
     public void setDepartment(String department) {
@@ -58,16 +60,27 @@ public class Employee extends Items{
 
     /**
      * Getter for department. It is used to return employee's department.
+     *
      * @return department
      */
     public String getDepartment() {
         return this.Department;
     }
 
+    /**
+     * Setter for rank. This sets employee's ranl.
+     *
+     * @param rank
+     */
     public void setRank(String rank) {
         this.Rank = rank;
     }
-    
+
+    /**
+     * Getter for rank. It is used to return employee's rank.
+     *
+     * @return rank
+     */
     public String getRank() {
         return this.Rank;
     }

@@ -18,6 +18,7 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
      */
     public ViewIssuedAccessories() {
         initComponents();
+        showDataInTable();
     }
 
     /**
@@ -33,6 +34,7 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         IssueAcc = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("View Issued Accessories");
@@ -50,16 +52,22 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
         IssueAcc.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0), 2));
         IssueAcc.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null},
-                {null, null, null, null, null, null}
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null},
+                {null, null, null, null, null, null, null}
             },
             new String [] {
-                "LoginID", "Department", "Item Name", "Quantity", "Company", "Rank"
+                "LoginID", "Contact No", "Department", "Item Name", "Quantity", "Company", "Rank"
             }
         ));
         jScrollPane1.setViewportView(IssueAcc);
+        if (IssueAcc.getColumnModel().getColumnCount() > 0) {
+            IssueAcc.getColumnModel().getColumn(1).setResizable(false);
+        }
+
+        jLabel1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel1.setText("Issued Accessories");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -68,25 +76,33 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(64, 64, 64)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 516, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(77, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 177, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(236, 236, 236))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(87, 87, 87)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(67, 67, 67)
+                .addGap(40, 40, 40)
+                .addComponent(jLabel1)
+                .addGap(33, 33, 33)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
                 .addComponent(jButton9)
-                .addContainerGap(31, Short.MAX_VALUE))
+                .addGap(43, 43, 43))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -140,11 +156,11 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
     public void showDataInTable() {
         tbModel = (DefaultTableModel) IssueAcc.getModel();
         tbModel.setRowCount(0);
-        for (int i = 0; i < AccManager.itemList.size(); i++) {
+        for (int i = 0; i < IssuedAcc.issueAcc.size(); i++) {
             Object[] obj = new Object[6];
-            obj[0] = AccManager.itemList.get(i).getItemName();
-            obj[1] = AccManager.itemList.get(i).getQuantity();
-            obj[2] = AccManager.itemList.get(i).getCompany();
+            obj[0] = IssuedAcc.issueAcc.get(i).getItemName();
+            obj[1] = IssuedAcc.issueAcc.get(i).getQuantity();
+            obj[2] = IssuedAcc.issueAcc.get(i).getCompany();
             tbModel.addRow(obj);
         }
     }
@@ -154,6 +170,7 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTable IssueAcc;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     // End of variables declaration//GEN-END:variables

@@ -146,7 +146,21 @@ public class Manager extends javax.swing.JFrame {
 
     private void RequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestActionPerformed
         // TODO add your handling code here:
-       
+        /*RequiredAccessories request = new RequiredAccessories();
+        request.setVisible(true);
+        for(int i = 0; i < AccManager.itemList.size(); i++)
+        {
+            String itemName = AccManager.itemList.get(i).getItemName();
+            String quantity = AccManager.itemList.get(i).getQuantity();
+            String company = AccManager.itemList.get(i).getCompany();
+            
+            int a = Integer.parseInt(AccManager.itemList.get(i).getQuantity());
+            if(a == 0)
+            {
+                ArrayList<RequiredAccessories> required = new ArrayList<RequiredAccessories>();
+            }
+            request.setVisible(false);
+        }*/
     }//GEN-LAST:event_RequestActionPerformed
 
     private void UpdateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_UpdateActionPerformed
@@ -159,7 +173,6 @@ public class Manager extends javax.swing.JFrame {
         // TODO add your handling code here:
         ViewStock view = new ViewStock();
         view.setVisible(true);
-        this.setVisible(false);
     }//GEN-LAST:event_ViewActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed

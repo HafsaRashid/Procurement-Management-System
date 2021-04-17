@@ -29,7 +29,7 @@ public class ManageEmployees extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         Back = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -45,11 +45,11 @@ public class ManageEmployees extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
-        jButton2.setText("View issued accessories");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        jButton3.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButton3.setText("View issued accessories");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton3ActionPerformed(evt);
             }
         });
 
@@ -71,9 +71,9 @@ public class ManageEmployees extends javax.swing.JFrame {
                         .addGap(136, 136, 136)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)))
+                            .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 223, Short.MAX_VALUE)))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(52, 52, 52)
+                        .addGap(54, 54, 54)
                         .addComponent(Back, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(147, Short.MAX_VALUE))
         );
@@ -82,11 +82,11 @@ public class ManageEmployees extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(79, 79, 79)
                 .addComponent(jButton1)
-                .addGap(37, 37, 37)
-                .addComponent(jButton2)
-                .addGap(50, 50, 50)
+                .addGap(41, 41, 41)
+                .addComponent(jButton3)
+                .addGap(49, 49, 49)
                 .addComponent(Back)
-                .addContainerGap(65, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -103,11 +103,11 @@ public class ManageEmployees extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
         ViewIssuedAccessories issuedAccessories = new ViewIssuedAccessories();
         issuedAccessories.setVisible(true);
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     private void BackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BackActionPerformed
         // TODO add your handling code here:
@@ -159,7 +159,7 @@ public class ManageEmployees extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Back;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }

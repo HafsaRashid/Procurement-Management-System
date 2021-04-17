@@ -5,6 +5,7 @@
  */
 package driver;
 
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -12,10 +13,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Hafsa Rashid
  */
 public class ViewPendingRequests extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ViewPendingRequests
-     */
+            IssuedAcc  issueAcc= new IssuedAcc();
     public ViewPendingRequests() {
         initComponents();
         showDataInTable();
@@ -34,6 +32,8 @@ public class ViewPendingRequests extends javax.swing.JFrame {
         jButton9 = new javax.swing.JButton();
         jScrollPane2 = new javax.swing.JScrollPane();
         pendingRqst = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("View Pending Requests");
@@ -57,41 +57,73 @@ public class ViewPendingRequests extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "LoginID", "Contact No", "Department", "Item Name", "Quantity", "Company", "Rank"
+                "LoginID", "Contact No", "Department", "Rank", "Item Name", "Quantity", "Company"
             }
         ));
         jScrollPane2.setViewportView(pendingRqst);
+        if (pendingRqst.getColumnModel().getColumnCount() > 0) {
+            pendingRqst.getColumnModel().getColumn(3).setResizable(false);
+            pendingRqst.getColumnModel().getColumn(5).setResizable(false);
+        }
+
+        jLabel2.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        jLabel2.setText("Pending Requests");
+
+        jButton1.setFont(new java.awt.Font("SansSerif", 0, 14)); // NOI18N
+        jButton1.setText("Issue Accessories");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(68, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 511, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(64, 64, 64))
+                .addContainerGap(74, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(56, 56, 56))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(70, 70, 70))))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                    .addContainerGap(288, Short.MAX_VALUE)
+                    .addComponent(jLabel2)
+                    .addGap(274, 274, 274)))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap(83, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 91, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(63, 63, 63)
-                .addComponent(jButton9)
-                .addGap(31, 31, 31))
+                .addGap(91, 91, 91)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton9)
+                    .addComponent(jButton1))
+                .addGap(43, 43, 43))
+            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGap(43, 43, 43)
+                    .addComponent(jLabel2)
+                    .addContainerGap(316, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
@@ -102,6 +134,50 @@ public class ViewPendingRequests extends javax.swing.JFrame {
         ManageEmployees manage = new ManageEmployees();
         manage.setVisible(true);
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Items item = new Items();
+//        int instance = 0;
+        for (int i = 0; i < Employee.request.size(); i++) {
+        String itemName = Employee.request.get(i).getItemName();
+        String quantity = Employee.request.get(i).getQuantity();
+        String company = Employee.request.get(i).getCompany();
+        int index1 = item.searchitem(itemName);
+        int a = Integer.parseInt(AccManager.itemList.get(index1).getQuantity());
+        int b = Integer.parseInt(quantity);
+        //JOptionPane.showMessageDialog(null, "Quantity." + "a = " + a + " b = " + b + " itemname " + itemName);
+
+        //int Quantity = AccManager.itemList.get(index1).getQuantity().compareTo(quantity);
+        if (a >= b) {
+            int c = a - b;
+            item = AccManager.itemList.get(index1);
+            item.setItemName(itemName);
+            item.setQuantity(c + "");
+            item.setCompany(company);
+            issueAcc = IssuedAcc.issueAcc.get(index1);
+            issueAcc.setItemName(itemName);
+            issueAcc.setQuantity(quantity);
+            issueAcc.setCompany(company);
+            AccManager.itemList.set(index1, item);
+            IssuedAcc.issueAcc.set(index1, issueAcc);
+            JOptionPane.showMessageDialog(null, "Request has been issued.");
+            if ((i+1) == Employee.request.size()) {
+                JOptionPane.showMessageDialog(null, "NO ISSUE.");
+                this.setVisible(false);
+            }
+            /*issueAcc.setItemName(itemName);
+            issueAcc.setQuantity(quantity);
+            issueAcc.setCompany(company);
+            IssuedAcc.issueAcc.set(index1, issueAcc);
+            JOptionPane.showMessageDialog(null, "ISSUE.");*/
+
+        } else {
+            //JOptionPane.showMessageDialog(null, "Quantity." + "a = " + a + " b = " + b + " itemname " + itemName);
+            JOptionPane.showMessageDialog(null, "Sorry, we are out of stock.");
+        }
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -120,13 +196,17 @@ public class ViewPendingRequests extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ViewPendingRequests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPendingRequests.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ViewPendingRequests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPendingRequests.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ViewPendingRequests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPendingRequests.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ViewPendingRequests.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(ViewPendingRequests.class
+                    .getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
@@ -137,7 +217,7 @@ public class ViewPendingRequests extends javax.swing.JFrame {
             }
         });
     }
-    
+
     public void showDataInTable() {
         tbModel = (DefaultTableModel) pendingRqst.getModel();
         tbModel.setRowCount(0);
@@ -158,7 +238,9 @@ public class ViewPendingRequests extends javax.swing.JFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton9;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable pendingRqst;

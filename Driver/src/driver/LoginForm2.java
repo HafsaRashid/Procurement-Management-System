@@ -8,7 +8,7 @@ package driver;
 import javax.swing.JOptionPane;
 
 public class LoginForm2 extends javax.swing.JFrame {
-    Employee emp = new Employee();
+    
     public LoginForm2() {
         initComponents();
     }
@@ -205,6 +205,7 @@ public class LoginForm2 extends javax.swing.JFrame {
 
     private void RequestActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_RequestActionPerformed
         // TODO add your handling code here:
+        Employee emp = new Employee();
         String loginID = jTextField1.getText();
         String contactNo = jTextField2.getText();
         String department = jTextField3.getText();
