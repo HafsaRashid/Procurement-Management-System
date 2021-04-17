@@ -157,9 +157,7 @@ public class Manager extends javax.swing.JFrame {
             int a = Integer.parseInt(AccManager.itemList.get(i).getQuantity());
             if(a == 0)
             {
-                ArrayList<RequiredAccessories> required = new ArrayList<RequiredAccessories>();
             }
-            request.setVisible(false);
         }*/
     }//GEN-LAST:event_RequestActionPerformed
 

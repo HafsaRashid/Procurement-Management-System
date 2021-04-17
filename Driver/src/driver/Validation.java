@@ -169,7 +169,7 @@ public class Validation {
         int length = Quantity.length();
         if (length == 1 || length == 2) {
             for (int i = 0; i < length; i++) {
-                if (Quantity.charAt(i) >= '1' && Quantity.charAt(i) <= '9') {
+                if (Quantity.charAt(i) >= '0' && Quantity.charAt(i) <= '9') {
                     flag = true;
                 } else {
                     flag = false;

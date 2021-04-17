@@ -77,30 +77,5 @@ public class Items {
         return index;
     }
     
-    public int searchQuantity(String quantity)
-        {
-            int index = -1;
-            for(int i = 0; i < Employee.request.size(); i ++)
-            {
-                if(AccManager.itemList.get(i).getQuantity().equals(quantity))
-                {
-                    index = i;
-                    break;
-                }
-            }
-            return index;
-        }
-    public int searchCompany(String company)
-    {
-        int index = -1;
-        for(int i = 0; i < AccManager.itemList.size(); i++)
-        {
-            if(AccManager.itemList.get(i).getCompany().equals(company))
-            {
-                index = i;
-                break;
-            }
-        }
-        return index;
-    }
+    
 }

@@ -13,7 +13,8 @@ import javax.swing.table.DefaultTableModel;
  * @author Hafsa Rashid
  */
 public class ViewPendingRequests extends javax.swing.JFrame {
-            Employee emp = new Employee();
+
+
     public ViewPendingRequests() {
         initComponents();
         showDataInTable();
@@ -138,51 +139,35 @@ public class ViewPendingRequests extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         Items item = new Items();
+        //Employee emp = new Employee();
+
 //        int instance = 0;
         for (int i = 0; i < Employee.request.size(); i++) {
-        String loginID = Employee.request.get(i).getLoginID();
-        String contactNo = Employee.request.get(i).getContactNo();
-        String department = Employee.request.get(i).getDepartment();
-        String rank = Employee.request.get(i).getRank();
-        String itemName = Employee.request.get(i).getItemName();
-        String quantity = Employee.request.get(i).getQuantity();
-        String company = Employee.request.get(i).getCompany();
-        int index1 = item.searchitem(itemName);
-        int a = Integer.parseInt(AccManager.itemList.get(index1).getQuantity());
-        int b = Integer.parseInt(quantity);
-        //JOptionPane.showMessageDialog(null, "Quantity." + "a = " + a + " b = " + b + " itemname " + itemName);
-
-        //int Quantity = AccManager.itemList.get(index1).getQuantity().compareTo(quantity);
-        if (a >= b) {
-            int c = a - b;
-            item = AccManager.itemList.get(index1);
-            item.setItemName(itemName);
-            item.setQuantity(c + "");
-            item.setCompany(company);
-            AccManager.itemList.set(index1, item);
-            emp.setLoginID(loginID);
-            emp.setContactNo(contactNo);
-            emp.setDepartment(department);
-            emp.setRank(rank);
-            emp.setItemName(itemName);
-            emp.setQuantity(quantity);
-            emp.setCompany(company);
-            Employee.request.set(index1, emp);
-            JOptionPane.showMessageDialog(null, "Request has been issued.");
-            if ((i+1) == Employee.request.size()) {
-                JOptionPane.showMessageDialog(null, "NO ISSUE.");
-                this.setVisible(false);
+            String loginID = Employee.request.get(i).getLoginID();
+            String contactNo = Employee.request.get(i).getContactNo();
+            String department = Employee.request.get(i).getDepartment();
+            String rank = Employee.request.get(i).getRank();
+            String itemName = Employee.request.get(i).getItemName();
+            String quantity = Employee.request.get(i).getQuantity();
+            String company = Employee.request.get(i).getCompany();
+            int index1 = item.searchitem(itemName);
+            int a = Integer.parseInt(AccManager.itemList.get(index1).getQuantity());
+            int b = Integer.parseInt(quantity);
+            if (a >= b) {
+                int c = a - b;
+                item = AccManager.itemList.get(index1);
+                item.setItemName(itemName);
+                item.setQuantity(c + "");
+                item.setCompany(company);
+                AccManager.itemList.set(index1, item);
+                JOptionPane.showMessageDialog(null, "Request has been issued.");
+                if ((i + 1) == Employee.request.size()) {
+                    this.setVisible(false);
+                }
+            } 
+            else {
+                JOptionPane.showMessageDialog(null, "Sorry, we are out of stock.");
             }
-            /*issueAcc.setItemName(itemName);
-            issueAcc.setQuantity(quantity);
-            issueAcc.setCompany(company);
-            IssuedAcc.issueAcc.set(index1, issueAcc);
-            JOptionPane.showMessageDialog(null, "ISSUE.");*/
-
-        } else {
-            //JOptionPane.showMessageDialog(null, "Quantity." + "a = " + a + " b = " + b + " itemname " + itemName);
-            JOptionPane.showMessageDialog(null, "Sorry, we are out of stock.");
-        }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

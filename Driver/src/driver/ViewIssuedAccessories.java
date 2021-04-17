@@ -58,11 +58,11 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "LoginID", "Contact No", "Department", "Item Name", "Rank", "Quantity", "Company"
+                "LoginID", "Contact No", "Department", "Rank", "Item Name", "Quantity", "Company"
             }
         ) {
             boolean[] canEdit = new boolean [] {
-                true, true, true, true, false, true, false
+                true, true, true, false, true, true, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -165,13 +165,14 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
         tbModel = (DefaultTableModel) IssueAcc.getModel();
         tbModel.setRowCount(0);
         for (int i = 0; i < Employee.request.size(); i++) {
-            Object[] obj = new Object[6];
+            Object[] obj = new Object[7];
             obj[0] = Employee.request.get(i).getLoginID();
             obj[1] = Employee.request.get(i).getContactNo();
             obj[2] = Employee.request.get(i).getDepartment();
-            obj[3] = Employee.request.get(i).getItemName();
-            obj[4] = Employee.request.get(i).getQuantity();
-            obj[5] = Employee.request.get(i).getCompany();
+            obj[3] = Employee.request.get(i).getRank();
+            obj[4] = Employee.request.get(i).getItemName();
+            obj[5] = Employee.request.get(i).getQuantity();
+            obj[6] = Employee.request.get(i).getCompany();
 
 /*            obj[0] = IssuedAcc.issueAcc.get(i).getItemName();
             obj[1] = IssuedAcc.issueAcc.get(i).getQuantity();
