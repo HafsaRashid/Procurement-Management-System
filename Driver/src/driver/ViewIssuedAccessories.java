@@ -58,9 +58,17 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
                 {null, null, null, null, null, null, null}
             },
             new String [] {
-                "LoginID", "Contact No", "Department", "Item Name", "Quantity", "Company", "Rank"
+                "LoginID", "Contact No", "Department", "Item Name", "Rank", "Quantity", "Company"
             }
-        ));
+        ) {
+            boolean[] canEdit = new boolean [] {
+                true, true, true, true, false, true, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jScrollPane1.setViewportView(IssueAcc);
         if (IssueAcc.getColumnModel().getColumnCount() > 0) {
             IssueAcc.getColumnModel().getColumn(1).setResizable(false);
@@ -156,12 +164,19 @@ public class ViewIssuedAccessories extends javax.swing.JFrame {
     public void showDataInTable() {
         tbModel = (DefaultTableModel) IssueAcc.getModel();
         tbModel.setRowCount(0);
-        for (int i = 0; i < IssuedAcc.issueAcc.size(); i++) {
+        for (int i = 0; i < Employee.request.size(); i++) {
             Object[] obj = new Object[6];
-            obj[0] = IssuedAcc.issueAcc.get(i).getItemName();
+            obj[0] = Employee.request.get(i).getLoginID();
+            obj[1] = Employee.request.get(i).getContactNo();
+            obj[2] = Employee.request.get(i).getDepartment();
+            obj[3] = Employee.request.get(i).getItemName();
+            obj[4] = Employee.request.get(i).getQuantity();
+            obj[5] = Employee.request.get(i).getCompany();
+
+/*            obj[0] = IssuedAcc.issueAcc.get(i).getItemName();
             obj[1] = IssuedAcc.issueAcc.get(i).getQuantity();
             obj[2] = IssuedAcc.issueAcc.get(i).getCompany();
-            tbModel.addRow(obj);
+  */          tbModel.addRow(obj);
         }
     }
 

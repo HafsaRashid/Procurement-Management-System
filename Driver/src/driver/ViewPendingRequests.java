@@ -13,7 +13,7 @@ import javax.swing.table.DefaultTableModel;
  * @author Hafsa Rashid
  */
 public class ViewPendingRequests extends javax.swing.JFrame {
-            IssuedAcc  issueAcc= new IssuedAcc();
+            Employee emp = new Employee();
     public ViewPendingRequests() {
         initComponents();
         showDataInTable();
@@ -81,17 +81,17 @@ public class ViewPendingRequests extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(74, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addContainerGap(69, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 579, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(56, 56, 56))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(jButton9, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 147, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(70, 70, 70))))
+                        .addGap(73, 73, 73))))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                     .addContainerGap(288, Short.MAX_VALUE)
@@ -103,11 +103,11 @@ public class ViewPendingRequests extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(91, 91, 91)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 92, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                .addGap(58, 58, 58)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton9)
-                    .addComponent(jButton1))
-                .addGap(43, 43, 43))
+                    .addComponent(jButton1)
+                    .addComponent(jButton9))
+                .addContainerGap(70, Short.MAX_VALUE))
             .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(jPanel1Layout.createSequentialGroup()
                     .addGap(43, 43, 43)
@@ -140,6 +140,10 @@ public class ViewPendingRequests extends javax.swing.JFrame {
         Items item = new Items();
 //        int instance = 0;
         for (int i = 0; i < Employee.request.size(); i++) {
+        String loginID = Employee.request.get(i).getLoginID();
+        String contactNo = Employee.request.get(i).getContactNo();
+        String department = Employee.request.get(i).getDepartment();
+        String rank = Employee.request.get(i).getRank();
         String itemName = Employee.request.get(i).getItemName();
         String quantity = Employee.request.get(i).getQuantity();
         String company = Employee.request.get(i).getCompany();
@@ -155,12 +159,15 @@ public class ViewPendingRequests extends javax.swing.JFrame {
             item.setItemName(itemName);
             item.setQuantity(c + "");
             item.setCompany(company);
-            issueAcc = IssuedAcc.issueAcc.get(index1);
-            issueAcc.setItemName(itemName);
-            issueAcc.setQuantity(quantity);
-            issueAcc.setCompany(company);
             AccManager.itemList.set(index1, item);
-            IssuedAcc.issueAcc.set(index1, issueAcc);
+            emp.setLoginID(loginID);
+            emp.setContactNo(contactNo);
+            emp.setDepartment(department);
+            emp.setRank(rank);
+            emp.setItemName(itemName);
+            emp.setQuantity(quantity);
+            emp.setCompany(company);
+            Employee.request.set(index1, emp);
             JOptionPane.showMessageDialog(null, "Request has been issued.");
             if ((i+1) == Employee.request.size()) {
                 JOptionPane.showMessageDialog(null, "NO ISSUE.");
