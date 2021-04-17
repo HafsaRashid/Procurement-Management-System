@@ -5,6 +5,7 @@
  */
 package driver;
 
+import java.io.FileWriter;
 import java.util.ArrayList;
 
 public class Items {
@@ -76,6 +77,4 @@ public class Items {
         }
         return index;
     }
-    
-    
 }

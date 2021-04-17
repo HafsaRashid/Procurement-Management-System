@@ -141,6 +141,7 @@ public class AddItem extends javax.swing.JFrame {
 
     private void AddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AddActionPerformed
         // TODO add your handling code here:
+        //Items item = new Items();
         String itemName = jTextField1.getText();
         String quantity = jComboBox1.getSelectedItem().toString();
         String company = jTextField2.getText();
@@ -160,7 +161,6 @@ public class AddItem extends javax.swing.JFrame {
             manager.item.setCompany(company);
             
             AccManager.itemList.add(manager.item);
-           
             JOptionPane.showMessageDialog(null, "Item has been added successfully.");
             }
             else if(input == 1)
